@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Time - Your Schedule</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Your Personalized Schedule</h1>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Start Time</th>
+<th>End Time</th>
+</tr>
+</thead>
+<tbody>
+{% for task, (start_time, end_time) in zip(tasks, time_slots) %}
+<tr>
+<td>{{ task }}</td>
+<td>{{ start_time.strftime('%H:%M') }}</td>
+<td>{{ end_time.strftime('%H:%M') }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="buttons">
+<a href="/">Back to Home</a>
+<a href="/schedule/save">Save Schedule</a>
+<a href="/schedule/export">Export Schedule</a>
+</div>
+</body>
+</html>
+
